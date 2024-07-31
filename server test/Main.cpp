@@ -67,6 +67,8 @@ void sendFile(CSocket& clientSocket, const char* fileName) {
         return;
     }
 
+    clientSocket.Send("GREAT", 5);
+
     file.seekg(0, ios::end);
     long long fileSize = file.tellg();
     file.seekg(0, ios::beg);
@@ -113,6 +115,7 @@ int _tmain(int argc, TCHAR* argv[], TCHAR* envp[]) {
                 serverSocket.Close();
                 return 1;
             }
+           
         }
 
         while (running) {
